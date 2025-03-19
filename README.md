@@ -46,7 +46,15 @@ Ensure that the `.env` file contains the following configurations:
 LIFE_HACKER_RSS_URL=https://lifehacker.com/rss
 ```
 
-### 4. Generate the Application Key
+### 4. Install Composer Dependencies
+
+Run the following command to install all the required Composer dependencies:
+
+```bash
+make install
+```
+
+### 5. Generate the Application Key
 
 Before running migrations, you need to generate the application key. Run the following command:
 
@@ -55,14 +63,6 @@ make key
 ```
 
 This will generate a unique application key for your Laravel app.
-
-### 5. Install Composer Dependencies
-
-Run the following command to install all the required Composer dependencies:
-
-```bash
-make install
-```
 
 ### 6. Run database migrations
 

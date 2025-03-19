@@ -12,7 +12,7 @@ restart:
 
 # Install Composer dependencies
 install:
-	docker compose exec rss_app composer install --no-dev --optimize-autoloader
+	docker compose exec rss_app composer install --optimize-autoloader
 
 # Generate application key
 key:
