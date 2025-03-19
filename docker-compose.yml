@@ -1,0 +1,44 @@
+services:
+    rss_app:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        container_name: rss_parser_app
+        restart: always
+        working_dir: /var/www
+        volumes:
+            - .:/var/www
+        networks:
+            - rss_network
+
+    rss_web:
+        image: nginx:latest
+        container_name: rss_parser_nginx
+        restart: always
+        ports:
+            - "8080:80"
+        volumes:
+            - .:/var/www
+            - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+        depends_on:
+            - rss_app
+        networks:
+            - rss_network
+
+    rss_db:
+        image: mysql:8.0
+        container_name: rss_parser_db
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: rss_parser
+            MYSQL_USER: db_user
+            MYSQL_PASSWORD: "FrC`J>}+S<%),2nc~Tfm5d"
+        ports:
+            - "3306:3306"
+        networks:
+            - rss_network
+
+networks:
+    rss_network:
+        driver: bridge
