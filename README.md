@@ -50,7 +50,17 @@ Ensure that the `.env` file contains the following configurations:
 LIFE_HACKER_RSS_URL=https://lifehacker.com/rss
 ```
 
-### 5. Run database migrations
+### 5. Generate the Application Key
+
+Before running migrations, you need to generate the application key. Run the following command:
+
+```bash
+make key
+```
+
+This will generate a unique application key for your Laravel app.
+
+### 6. Run database migrations
 
 To run the database migrations:
 
@@ -58,7 +68,7 @@ To run the database migrations:
 make migrate
 ```
 
-### 6. Seed the database with test data
+### 7. Seed the database with test data
 
 To seed the database with test data:
 
@@ -66,11 +76,11 @@ To seed the database with test data:
 make seed
 ```
 
-### 7. Cron Job Configuration
+### 8. Cron Job Configuration
 
 The application uses Laravel's built-in scheduler to fetch and parse RSS feeds every 5 minutes. This is configured through a cron job in the Docker container.
 
-### 8. Swagger Documentation
+### 9. Swagger Documentation
 
 The Swagger documentation for the API is automatically generated. You can access it at:
 

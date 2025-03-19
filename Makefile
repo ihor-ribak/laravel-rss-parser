@@ -10,6 +10,10 @@ down:
 restart:
 	docker compose down && docker compose up -d --build
 
+# Generate application key
+key:
+	docker compose exec rss_app php artisan key:generate
+
 # Run database migrations
 migrate:
 	docker compose exec rss_app php artisan migrate

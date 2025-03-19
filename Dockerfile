@@ -27,9 +27,6 @@ RUN composer install --no-dev --optimize-autoloader
 # Set appropriate permissions for the storage and cache directories
 RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
 
-# Generate the application key
-RUN php artisan key:generate
-
 # Copy the cron job configuration into the container
 COPY ./cron/laravel-cron /etc/cron.d/laravel-cron
 
