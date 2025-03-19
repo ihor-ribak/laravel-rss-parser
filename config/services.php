@@ -30,4 +30,7 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'rss' => [
+        'life_hacker_rss_url' => env('LIFE_HACKER_RSS_URL'),
+    ],
 ];
