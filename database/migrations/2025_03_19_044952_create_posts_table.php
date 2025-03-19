@@ -18,6 +18,8 @@ class CreatePostsTable extends Migration
         if (!Schema::hasTable(self::TABLE_NAME)) {
             Schema::create(self::TABLE_NAME, function (Blueprint $table) {
                 $table->id();
+                // 'guid' is unique and used to avoid duplicate posts. It stores the item identifier
+                // from the parsed RSS feed to ensure each post is only stored once.
                 $table->string('guid')->unique()->nullable();
                 $table->string('title');
                 $table->string('link');
