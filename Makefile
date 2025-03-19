@@ -10,6 +10,10 @@ down:
 restart:
 	docker compose down && docker compose up -d --build
 
+# Install Composer dependencies
+install:
+	docker compose exec rss_app composer install --no-dev --optimize-autoloader
+
 # Generate application key
 key:
 	docker compose exec rss_app php artisan key:generate

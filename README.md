@@ -35,11 +35,7 @@ This will:
 - Set appropriate permissions
 - Set up cron jobs for the application
 
-### 3. Access the application
-
-Once the containers are running, the application will be accessible via your browser at `http://localhost:8080`.
-
-### 4. Environment Configuration
+### 3. Environment Configuration
 
 Ensure that the `.env` file contains the following configurations:
 
@@ -50,7 +46,7 @@ Ensure that the `.env` file contains the following configurations:
 LIFE_HACKER_RSS_URL=https://lifehacker.com/rss
 ```
 
-### 5. Generate the Application Key
+### 4. Generate the Application Key
 
 Before running migrations, you need to generate the application key. Run the following command:
 
@@ -59,6 +55,14 @@ make key
 ```
 
 This will generate a unique application key for your Laravel app.
+
+### 5. Install Composer Dependencies
+
+Run the following command to install all the required Composer dependencies:
+
+```bash
+make install
+```
 
 ### 6. Run database migrations
 
@@ -76,11 +80,15 @@ To seed the database with test data:
 make seed
 ```
 
-### 8. Cron Job Configuration
+### 8. Access the application
+
+Once the containers are running, the application will be accessible via your browser at `http://localhost:8080`.
+
+### 9. Cron Job Configuration
 
 The application uses Laravel's built-in scheduler to fetch and parse RSS feeds every 5 minutes. This is configured through a cron job in the Docker container.
 
-### 9. Swagger Documentation
+### 10. Swagger Documentation
 
 The Swagger documentation for the API is automatically generated. You can access it at:
 

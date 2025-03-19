@@ -21,9 +21,6 @@ WORKDIR /var/www
 # Copy all files from the local machine to the container
 COPY . .
 
-# Install Laravel dependencies using Composer
-RUN composer install --no-dev --optimize-autoloader
-
 # Set appropriate permissions for the storage and cache directories
 RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
 
